@@ -5,3 +5,5 @@ function Header(){
     <h1 className="title">Summer's Seltzery</h1>
   );
 }
+
+export default Header;
