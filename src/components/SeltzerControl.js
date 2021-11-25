@@ -16,9 +16,14 @@ class SeltzerControl extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
+    if (this.state.selectedSeltzer != null) {
+      this.setState({ formVisibleOnPage: false, selectedSeltzer: null});
+    }
+    else {
+      this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
+  }
   }
 
   handleNewSeltzerToList = (newSeltzer) => {
@@ -30,11 +35,17 @@ class SeltzerControl extends React.Component {
     const selectedSeltzer = this.state.mainSeltzerList.filter(seltzer => seltzer.id === id)[0];
     this.setState({selectedSeltzer: selectedSeltzer});
   }
+
+  handleDeletingSeltzer = (id) => {
+    const newSeltzerList = this.state.mainSeltzerList.filter(seltzer => seltzer.id !== id);
+    this.setState({mainSeltzerList: newSeltzerList, selectedSeltzer: null});
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedSeltzer != null) {
-      currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} />
+      currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} onClickDelete={this.handleDeletingSeltzer}/>
       buttonText = "Return to Seltzer List";
     } else if (this.state.formVisibleOnPage){
       currentlyVisibleState = <NewSeltzerForm />;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SeltzerDetail(props) {
-  const { seltzer } = props;
+  const { seltzer, onClickingDelete } = props;
   return (
     <>
       <h1>Seltzer Detail</h1>
@@ -11,12 +11,14 @@ function SeltzerDetail(props) {
       <li>$ {seltzer.price}</li>
       <li>{seltzer.alcoholContent}%</li>
       <li>{seltzer.quantity}</li>
+      <button onClick={() => onClickingDelete(seltzer.id)} className="btn btn-dark">Remove Seltzer</button>
     </>
   )
 }
 
 SeltzerDetail.propTypes = { 
-  seltzer: PropTypes.object
+  seltzer: PropTypes.object,
+  onClickingDelete: PropTypes.func
 }
 
 export default SeltzerDetail;
