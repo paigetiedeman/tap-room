@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
+import ReusableForm from './ReusableForm';
 
 function NewSeltzerForm(props) {
 
@@ -15,22 +16,12 @@ function NewSeltzerForm(props) {
       id: v4()
     });
   }
-  
+
   return (
     <>
-      <form onSubmit={handleNewSeltzerFormSubmission}>
-        <input type="text" name="name" placeholder="Seltzer Name" className="form-control"/>
-        <br />
-        <input type="text" name="brand" placeholder="San Juan" className="form-control"/>
-        <br/>
-        <input type="number" name="price" placeholder="$6.99" className="form-control"/>
-        <br/>
-        <input type="number" name="alcoholContent" placeholder="8%" className="form-control"/>
-        <br/>
-        <input type="number" name="quantity" placeholder="124 pints" className="form-control"/>
-        <br />
-        <button type="submit" className="btn btn-dark">Add!</button>
-      </form>
+      <ReusableForm
+      formSubmissionHandler={handleNewSeltzerFormSubmission}
+      buttonText = "Add!" />     
     </>
   );
 }
