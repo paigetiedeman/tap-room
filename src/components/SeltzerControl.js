@@ -1,6 +1,7 @@
 import React from 'react';
 import NewSeltzerForm from './NewSeltzerForm';
 import SeltzerList from './SeltzerList';
+import SeltzerDetail from './SeltzerDetail';
 
 class SeltzerControl extends React.Component {
 
@@ -8,7 +9,8 @@ class SeltzerControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainSeltzerList: []
+      mainSeltzerList: [],
+      selectedSeltzer: null
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -23,11 +25,18 @@ class SeltzerControl extends React.Component {
     const newSeltzerList = this.state.mainSeltzerList.concat(newSeltzer);
     this.setState({formVisibleOnPage: false, mainSeltzerList: newSeltzerList});
   }
-  
+
+  handleChangingSelectedSeltzer = (id) => {
+    const selectedSeltzer = this.state.mainSeltzerList.filter(seltzer => seltzer.id === id)[0];
+    this.setState({selectedSeltzer: selectedSeltzer});
+  }
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage){
+    if (this.state.selectedSeltzer != null) {
+      currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} />
+      buttonText = "Return to Seltzer List";
+    } else if (this.state.formVisibleOnPage){
       currentlyVisibleState = <NewSeltzerForm />;
       buttonText = "Return to Seltzer List";
     } else {
@@ -37,8 +46,10 @@ class SeltzerControl extends React.Component {
     return (
       <>
         {currentlyVisibleState}
-        <button onClick={this.handleClick} className="btn btn-dark">Add Seltzer</button>
+        <button onClick={this.handleClick} className="btn btn-dark">{buttonText}</button>
       </>
     );
   }
 }
+
+export default SeltzerControl;

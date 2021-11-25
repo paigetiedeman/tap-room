@@ -2,13 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Seltzer(props){
+    const styledCard = {
+      backgroundColor: '#FFFFFF',
+      textAlign: 'center',
+      border: '2px solid white'
+    }
+
   return (
     <>
-      <h2>{props.name}</h2>
-      <li>{props.brand}</li>
-      <li>$ {props.price}</li>
-      <li>{props.alcoholContent}%</li>
-      <li>{props.quantity}</li>
+      <div onClick= {() => props.whenSeltzerClicked(props.id)} style={styledCard}>
+        <h2>{props.name}</h2>
+        <li>{props.brand}</li>
+        <li>$ {props.price}</li>
+        <li>{props.alcoholContent}%</li>
+        <li>{props.quantity}</li>
+      </div>
     </>
   )
 }
@@ -18,7 +26,9 @@ Seltzer.propTypes = {
   brand: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   alcoholContent: PropTypes.string.isRequired,
-  quantity: PropTypes.number
+  quantity: PropTypes.number,
+  id: PropTypes.string,
+  whenSeltzerClicked: PropTypes.func
 }
 
 export default Seltzer;
