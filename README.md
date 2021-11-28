@@ -1,4 +1,57 @@
-# Summer's Seltzery Tap Room
+<img src='src/img/Title.PNG'/>
+
+#### By: Paige Tiedeman
+
+#### This project allows users to create a Seltzery Tap Room that allows for full CRUD functionality. As well as allowing users to "sell" pints"
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* React
+* Bootstrap
+* Package.json
+
+## Component Structure
+
+<img src='src/img/Seltzer.drawio.png' />
+
+## Setup/Installation
+
+* _Clone or download the zip file of this repository to your desktop_
+* _Commit and push your .gitignore file to your repo_
+* _Run `$ npm install`_
+* _Run `$ npm run start` to see the live server_
+* _Navigate using the buttons to add, view or sell the flavors_
+
+## User Stories
+
+<details>
+<summary>As a User..</summary>
+
+* I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent.
+*  I want to submit a form to add a new keg to a list.
+*  I want to be able to click on a keg to see its detail page.
+*  I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints.
+*  I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
+
+</details>
+
+## License
+
+_[MIT](https://opensource.org/licenses/MIT)_  
+Copyright (c) 2021 Paige Tiedeman
+
+## Known Bugs
+
+* N/A
+
+## Contact Information
+
+[Paige Tiedeman](https://github.com/paigetiedeman)
+
+## Extra Information using Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

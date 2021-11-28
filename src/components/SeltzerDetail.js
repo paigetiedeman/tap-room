@@ -6,11 +6,13 @@ function SeltzerDetail(props) {
   return (
     <>
       <h1>Seltzer Detail</h1>
-      <h3>{seltzer.name}</h3>
-      <li>{seltzer.brand}</li>
-      <li>$ {seltzer.price}</li>
-      <li>{seltzer.alcoholContent}%</li>
-      <li>{seltzer.quantity} pints</li>
+      <div className="details">
+        <h3>{seltzer.name}</h3>
+        <p>Brand: {seltzer.brand}</p>
+        <p>$ {seltzer.price}</p>
+        <p>ABV: {seltzer.alcoholContent}%</p>
+        <p>{seltzer.quantity} pints left</p>
+      </div>
       <button onClick={() => props.onClickDelete(seltzer.id)} className="btn btn-dark">Remove Seltzer</button>
       <button onClick={ props.onClickEdit } className="btn btn-dark">Update Seltzer</button>
     </>

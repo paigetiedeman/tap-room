@@ -8,8 +8,9 @@ function Seltzer(props){
       border: '2px solid white',
       color: 'white',
       float: 'left',
-      padding: '20px',
-      margin: '10px'
+      padding: '40px',
+      margin: '10px',
+      borderRadius: '10px 100px / 120px',
     }
 
     if (props.quantity <= 0) {
@@ -22,7 +23,7 @@ function Seltzer(props){
           <p>ABV: {props.alcoholContent}%</p>
           <p>SOLD OUT</p>
           <br/>
-          <button onClick={() => props.whenSeltzerClicked(props.id)}>View Details</button>
+          <button onClick={() => props.whenSeltzerClicked(props.id)} className="btn btn-light">View Details</button>
         </div>
       </>
     )
@@ -36,8 +37,8 @@ function Seltzer(props){
             <p>ABV: {props.alcoholContent}%</p>
             <p>{props.quantity} pints left</p>
             <br/>
-            <button onClick={() => props.whenSeltzerClicked(props.id)}>View Details</button>
-            <button onClick={() => props.onClickBuy(props.id)}>Sell Pint</button>
+            <button onClick={() => props.whenSeltzerClicked(props.id)} className="btn btn-light">View Details</button>
+            <button onClick={() => props.onClickBuy(props.id)} className="btn btn-light">Sell Pint</button>
           </div>
         </>
       )
