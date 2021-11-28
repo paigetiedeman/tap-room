@@ -1,4 +1,4 @@
-# Tap Room
+# Summer's Seltzery Tap Room
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

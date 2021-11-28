@@ -10,8 +10,8 @@ function SeltzerDetail(props) {
       <li>{seltzer.brand}</li>
       <li>$ {seltzer.price}</li>
       <li>{seltzer.alcoholContent}%</li>
-      <li>{seltzer.quantity}</li>
-      <button onClick={ props.onClickDelete} className="btn btn-dark">Remove Seltzer</button>
+      <li>{seltzer.quantity} pints</li>
+      <button onClick={() => props.onClickDelete(seltzer.id)} className="btn btn-dark">Remove Seltzer</button>
       <button onClick={ props.onClickEdit } className="btn btn-dark">Update Seltzer</button>
     </>
   )

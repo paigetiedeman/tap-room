@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 function Seltzer(props){
     const styledCard = {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#122212',
       textAlign: 'center',
-      border: '2px solid white'
+      border: '2px solid white',
+      color: 'white'
     }
 
   return (

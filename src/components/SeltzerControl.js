@@ -43,18 +43,28 @@ class SeltzerControl extends React.Component {
     this.setState({mainSeltzerList: newSeltzerList, selectedSeltzer: null});
   }
 
-  handleEditSeltzer = (id) => {
+  handleEditClick = () => {
     this.setState({editing: true});
+  }
+
+  handleEditingSeltzer = (seltzerToEdit) => {
+    const editMainSeltzer = this.state.mainSeltzerList.filter(seltzer => seltzer.id !== this.state.selectedSeltzer.id)
+    .concat(seltzerToEdit);
+    this.setState({ 
+      mainSeltzerList: editMainSeltzer,
+      editing: false,
+      selectedSeltzer: null
+    });
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.editing) {
-      currentlyVisibleState = <EditSeltzerForm seltzer={this.state.selectedSeltzer} />
+      currentlyVisibleState = <EditSeltzerForm seltzer={this.state.selectedSeltzer} onEditSeltzer = {this.handleEditingSeltzer}/>
       buttonText = "Return to Seltzer List";
     } else if (this.state.selectedSeltzer != null) {
-      currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} onClickDelete={this.handleDeletingSeltzer} onClickEdit = {this.handleEditSeltzer}/>
+      currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} onClickDelete={this.handleDeletingSeltzer} onClickEdit = {this.handleEditClick}/>
       buttonText = "Return to Seltzer List";
     } else if (this.state.formVisibleOnPage){
       currentlyVisibleState = <NewSeltzerForm onNewSeltzerCreation={this.handleNewSeltzerToList}/>;
