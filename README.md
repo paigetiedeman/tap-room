@@ -1,8 +1,12 @@
+<div align="center">
+
 <img src='src/img/Title.PNG'/>
 
 #### By: Paige Tiedeman
 
 #### This project allows users to create a Seltzery Tap Room that allows for full CRUD functionality. As well as allowing users to "sell" pints"
+
+</div>
 
 ## Technologies Used
 
