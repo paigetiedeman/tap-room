@@ -57,10 +57,10 @@ class SeltzerControl extends React.Component {
       currentlyVisibleState = <SeltzerDetail seltzer={this.state.selectedSeltzer} onClickDelete={this.handleDeletingSeltzer} onClickEdit = {this.handleEditSeltzer}/>
       buttonText = "Return to Seltzer List";
     } else if (this.state.formVisibleOnPage){
-      currentlyVisibleState = <NewSeltzerForm />;
+      currentlyVisibleState = <NewSeltzerForm onNewSeltzerCreation={this.handleNewSeltzerToList}/>;
       buttonText = "Return to Seltzer List";
     } else {
-      currentlyVisibleState = <SeltzerList seltzerList={this.state.mainSeltzerList}/>
+      currentlyVisibleState = <SeltzerList seltzerList={this.state.mainSeltzerList} onSeltzerSelection={this.handleChangingSelectedSeltzer}/>
       buttonText = "Add New Seltzer";
     }
     return (
