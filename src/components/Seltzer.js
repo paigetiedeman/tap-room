@@ -3,23 +3,45 @@ import PropTypes from 'prop-types';
 
 function Seltzer(props){
     const styledCard = {
-      backgroundColor: '#122212',
+      backgroundColor: 'tomato',
       textAlign: 'center',
       border: '2px solid white',
-      color: 'white'
+      color: 'white',
+      float: 'left',
+      padding: '20px',
+      margin: '10px'
     }
 
-  return (
-    <>
-      <div onClick= {() => props.whenSeltzerClicked(props.id)} style={styledCard}>
-        <h2>{props.name}</h2>
-        <li>{props.brand}</li>
-        <li>$ {props.price}</li>
-        <li>{props.alcoholContent}%</li>
-        <li>{props.quantity}</li>
-      </div>
-    </>
-  )
+    if (props.quantity <= 0) {
+    return (
+      <>
+        <div style={styledCard}>
+          <h2>{props.name}</h2>
+          <p><strong>Brand:</strong> {props.brand}</p>
+          <p>$ {props.price}/per pint</p>
+          <p>ABV: {props.alcoholContent}%</p>
+          <p>SOLD OUT</p>
+          <br/>
+          <button onClick={() => props.whenSeltzerClicked(props.id)}>View Details</button>
+        </div>
+      </>
+    )
+    }
+      return (
+        <>
+          <div style={styledCard}>
+            <h2>{props.name}</h2>
+            <p><strong>Brand:</strong> {props.brand}</p>
+            <p>$ {props.price}/per pint</p>
+            <p>ABV: {props.alcoholContent}%</p>
+            <p>{props.quantity} pints left</p>
+            <br/>
+            <button onClick={() => props.whenSeltzerClicked(props.id)}>View Details</button>
+            <button onClick={() => props.onClickBuy(props.id)}>Sell Pint</button>
+          </div>
+        </>
+      )
+    
 }
 
 Seltzer.propTypes = {
@@ -29,7 +51,8 @@ Seltzer.propTypes = {
   alcoholContent: PropTypes.string.isRequired,
   quantity: PropTypes.number,
   id: PropTypes.string,
-  whenSeltzerClicked: PropTypes.func
+  whenSeltzerClicked: PropTypes.func,
+  onClickBuy: PropTypes.func,
 }
 
 export default Seltzer;

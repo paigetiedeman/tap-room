@@ -14,7 +14,8 @@ function SeltzerList(props) {
           alcoholContent={seltzer.alcoholContent}
           quantity={seltzer.quantity}
           id={seltzer.id}
-          key={seltzer.id} />
+          key={seltzer.id} 
+          onClickBuy={props.onClickBuy}/>
       )}
       </div>
     </>
@@ -23,7 +24,8 @@ function SeltzerList(props) {
 
 SeltzerList.propTypes = {
   seltzerList: PropTypes.array,
-  onSeltzerSelection: PropTypes.func
+  onSeltzerSelection: PropTypes.func,
+  onClickBuy: PropTypes.func
 }
 
 export default SeltzerList;
